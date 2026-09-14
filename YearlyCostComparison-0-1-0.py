@@ -4,7 +4,7 @@ Elbil vs Bensinbil
 Sander S. Boge
 """
 #%% Data
-KmPerYear = 0 #Distance driven per year
+KmPerYear = 10000 #Distance driven per year
 InsurancePerDay = 8.38 # cost per day for both in kr
 
 ElInsurancePerYear = 5000 #Electric car insurance in kr
