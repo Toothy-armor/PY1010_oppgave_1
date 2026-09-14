@@ -16,22 +16,12 @@ GasInsurancePerYear = 7500 #Gas car insurance in kr
 GasPricePerKm = 1 # in kr/km
 GasTollPrice = 0.3 #Kr/km
 
-#%%Functions
-def CalcElPerKm(Powerdraw,PowerPrice, TollPrice): # calculates cost per km for electric car
-    return(Powerdraw*PowerPrice + TollPrice)
-
-def CalcGasPrice(GasPrice,TollPrice): # calculates cost per km for gas car
-    return(GasPrice + TollPrice)
-
-def CalcPerYearCost(Insurance,Km,DailyInsurance,PerKmCost): #calculate total yearly cost using per km cost and insurance cost
-    return(Km*PerKmCost + Insurance + DailyInsurance*365)
-
-#%% Execution and calling functions
-ElPerKm = CalcElPerKm(ElKWhPerKm, EnergyPrice, ElTollPrice)
-GasPerKm = CalcGasPrice(GasPricePerKm, GasTollPrice)
+#%% Execution
+ElPerKm = ElKWhPerKm*EnergyPrice + ElTollPrice
+GasPerKm = GasPricePerKm + GasTollPrice
  
-GasPerYear = CalcPerYearCost(GasInsurancePerYear, KmPerYear, InsurancePerDay, GasPerKm)
-ElPerYear = CalcPerYearCost(ElInsurancePerYear, KmPerYear, InsurancePerDay, ElPerKm)
+GasPerYear = KmPerYear*GasPerKm + GasInsurancePerYear + InsurancePerDay*365
+ElPerYear = KmPerYear*ElPerKm + ElInsurancePerYear + InsurancePerDay*365
 
 #%%print costs
 print(GasPerYear,"Kr is the price of a gas car per Year")
