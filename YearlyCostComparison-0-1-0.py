@@ -23,6 +23,9 @@ GasPerKm = GasPricePerKm + GasTollPrice
 GasPerYear = KmPerYear*GasPerKm + GasInsurancePerYear + InsurancePerDay*365
 ElPerYear = KmPerYear*ElPerKm + ElInsurancePerYear + InsurancePerDay*365
 
+Difference = GasPerYear - ElPerYear
+
 #%%print costs
 print(GasPerYear,"Kr is the price of a gas car per Year")
 print(ElPerYear,"Kr is the price of an electric car per Year")
+print("A gas car costs", Difference, "kr more than an electric car")
